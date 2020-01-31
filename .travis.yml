@@ -25,6 +25,7 @@ jobs:
             - create-dmg
             - imagemagick
             - tree
+            - sdl2
       before_install:
         - export PATH="/usr/local/opt/qt/bin:$PATH"
       install:
