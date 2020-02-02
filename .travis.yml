@@ -22,7 +22,6 @@ jobs:
             - opencv
             - cmake
             - libusb
-            - create-dmg
             - imagemagick
             - tree
             - sdl2

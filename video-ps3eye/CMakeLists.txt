@@ -26,6 +26,13 @@ if(TARGET ps3eye-driver)
     otr_module(video-ps3eye)
     link_libraries(ps3eye-driver)
     add_executable(ps3eye-subprocess "wrapper.cxx")
+
+    # For a odd reason on Travis the output directory is an absolute path to root
+    set_target_properties(ps3eye-subprocess
+        PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "./"
+    )
+
     if(WIN32)
         set(path "${SDK_LIBUSB}/libusb-1.0.dll")
         if(EXISTS "${path}")
