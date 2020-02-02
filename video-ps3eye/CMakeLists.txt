@@ -30,7 +30,7 @@ if(TARGET ps3eye-driver)
     # For a odd reason on Travis the output directory is an absolute path to root
     set_target_properties(ps3eye-subprocess
         PROPERTIES
-        RUNTIME_OUTPUT_DIRECTORY "./"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BUILD_DIR}/video-ps3eye"
     )
 
     if(WIN32)
