@@ -12,12 +12,11 @@ jobs:
         - Qt5_DIR="/usr/local/opt/qt" 
       addons:
         homebrew:
-          update: true
+          update: false
           packages: 
             - qt5
             - eigen
             - opencv
-            - cmake
             - libusb
             - imagemagick
             - tree
@@ -38,8 +37,7 @@ script:
   - mkdir build
   - travis/build-opentrackdepends.sh
   - travis/generate-travis-cmake.sh
-  - export
-  - cd build
+  - cd build 
   - cmake -DCMAKE_BUILD_TYPE=Release ..
   - make VERBOSE=1 install
   - tree -dl install 
