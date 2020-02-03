@@ -3,9 +3,6 @@ os:
   - osx
 
 jobs:
-  allow_failures:
-    - os: osx
-
   include:
     - os: osx
       osx_image: xcode11.3
@@ -41,6 +38,7 @@ script:
   - mkdir build
   - travis/build-opentrackdepends.sh
   - travis/generate-travis-cmake.sh
+  - export
   - cd build
   - cmake -DCMAKE_BUILD_TYPE=Release ..
   - make VERBOSE=1 install
