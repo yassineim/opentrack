@@ -3,24 +3,20 @@ os:
   - osx
 
 jobs:
-  allow_failures:
-    - os: osx
-
   include:
     - os: osx
       osx_image: xcode11.3
       # TODO, try both compilers      
-      compiler: clang
+      compiler: gcc
       env:
         - Qt5_DIR="/usr/local/opt/qt" 
       addons:
         homebrew:
-          update: true
+          update: false
           packages: 
             - qt5
             - eigen
             - opencv
-            - cmake
             - libusb
             - imagemagick
             - tree
@@ -45,4 +41,3 @@ script:
   - cmake --debug --trace -DCMAKE_BUILD_TYPE=Release ..
 #  - make VERBOSE=1 install
 #  - tree -dl install 
-  
